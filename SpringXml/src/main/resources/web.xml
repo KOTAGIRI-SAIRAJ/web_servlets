@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+    <bean id="applicationContext" class="com.training.Person">
+        <constructor-arg value="Using Application Context" ></constructor-arg>
+    </bean>
+
+    <bean id="applicationContextSingleTonScope" class="com.training.Person" scope="singleton">
+        <constructor-arg value="Using Application Context Single Ton Scope" ></constructor-arg>
+    </bean>
+
+    <bean id="applicationContextPrototype" class="com.training.Person" scope="prototype">
+        <constructor-arg value="Using Application Context Prototype Scope" ></constructor-arg>
+    </bean>
+
+    <!--<bean id="applicationContextRequest" class="com.training.Person" scope="request">
+        <constructor-arg value="Using Application Context Request Scope" ></constructor-arg>
+    </bean>
+
+    <bean id="applicationContextSession" class="com.training.Person" scope="session">
+        <constructor-arg value="Using Application Context Session Scope" ></constructor-arg>
+    </bean>-->
+
+    <bean id="beanFactory" class="com.training.Person">
+        <constructor-arg value="Using Bean Factory" ></constructor-arg>
+    </bean>
+
+    <bean id="beanFactorySingleTonScope" class="com.training.Person" scope="singleton">
+        <constructor-arg value="Using Bean Factory Single Ton Scope" ></constructor-arg>
+    </bean>
+
+    <bean id="beanFactoryPrototype" class="com.training.Person" scope="prototype">
+        <constructor-arg value="Using Bean Factory Prototype Scope" ></constructor-arg>
+    </bean>
+
+    <bean id="beanLifeCycleMethods" class="com.training.Person" init-method="init" destroy-method="destroy" >
+        <constructor-arg value="Life Cycle Methods testing" ></constructor-arg>
+    </bean>
+
+    <bean class="com.training.InitPerson" />
+
+
+</beans>
