@@ -6,44 +6,86 @@
 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-
-    <bean id="applicationContext" class="com.training.Person">
-        <constructor-arg value="Using Application Context" ></constructor-arg>
+    <!--Using Application Context-->
+    <bean id="applicationContext" class="com.training.beanLifeCycle.Person">
+        <constructor-arg value="Only"  type="java.lang.String"></constructor-arg>
+        <constructor-arg value="Using Application Context"  type="java.lang.String"></constructor-arg>
     </bean>
 
-    <bean id="applicationContextSingleTonScope" class="com.training.Person" scope="singleton">
+    <bean id="applicationContextSingleTonScope" class="com.training.beanLifeCycle.Person" scope="singleton">
+        <constructor-arg value="Only"  type="java.lang.String"></constructor-arg>
         <constructor-arg value="Using Application Context Single Ton Scope" ></constructor-arg>
     </bean>
 
-    <bean id="applicationContextPrototype" class="com.training.Person" scope="prototype">
+    <bean id="applicationContextPrototype" class="com.training.beanLifeCycle.Person" scope="prototype">
+        <constructor-arg value="Only"  type="java.lang.String"></constructor-arg>
         <constructor-arg value="Using Application Context Prototype Scope" ></constructor-arg>
     </bean>
 
-    <!--<bean id="applicationContextRequest" class="com.training.Person" scope="request">
+    <bean id="contextPathXmlApplicationContext" class="com.training.beanLifeCycle.Person">
+        <constructor-arg value="Only"  type="java.lang.String"></constructor-arg>
+        <constructor-arg value="Using Context Path XML Application Context"  type="java.lang.String"></constructor-arg>
+    </bean>
+
+    <!--Not Working-->
+    <!--<bean id="applicationContextRequest" class="com.training.beanLifeCycle.Person" scope="request">
         <constructor-arg value="Using Application Context Request Scope" ></constructor-arg>
     </bean>
 
-    <bean id="applicationContextSession" class="com.training.Person" scope="session">
+    <bean id="applicationContextSession" class="com.training.beanLifeCycle.Person" scope="session">
         <constructor-arg value="Using Application Context Session Scope" ></constructor-arg>
     </bean>-->
 
-    <bean id="beanFactory" class="com.training.Person">
+    <!--Using Bean Factory-->
+    <bean id="beanFactory" class="com.training.beanLifeCycle.Person">
+        <constructor-arg value="Only"  type="java.lang.String"></constructor-arg>
         <constructor-arg value="Using Bean Factory" ></constructor-arg>
     </bean>
 
-    <bean id="beanFactorySingleTonScope" class="com.training.Person" scope="singleton">
+    <bean id="beanFactorySingleTonScope" class="com.training.beanLifeCycle.Person" scope="singleton">
+        <constructor-arg value="Only"  type="java.lang.String"></constructor-arg>
         <constructor-arg value="Using Bean Factory Single Ton Scope" ></constructor-arg>
     </bean>
 
-    <bean id="beanFactoryPrototype" class="com.training.Person" scope="prototype">
+    <bean id="beanFactoryPrototype" class="com.training.beanLifeCycle.Person" scope="prototype">
+        <constructor-arg value="Only"  type="java.lang.String"></constructor-arg>
         <constructor-arg value="Using Bean Factory Prototype Scope" ></constructor-arg>
     </bean>
 
-    <bean id="beanLifeCycleMethods" class="com.training.Person" init-method="init" destroy-method="destroy" >
+    <bean id="beanLifeCycleMethods" class="com.training.beanLifeCycle.Person" init-method="init" destroy-method="destroy" >
+        <constructor-arg value="Only"  type="java.lang.String"></constructor-arg>
         <constructor-arg value="Life Cycle Methods testing" ></constructor-arg>
     </bean>
 
-    <bean class="com.training.InitPerson" />
+    <!--Load the pre and post initialization-->
+    <bean class="com.training.beanLifeCycle.InitPerson"/>
 
+    <!--Inheritance Without Extends Keyword-->
+    <bean id = "softwareCompanyBean" class = "com.training.inheritance.SoftwareCompany">
+        <property name = "companyName" value = "Semantic Bits !"/>
+        <property name = "typeOfCompany" value = "Service Based Company!"/>
+    </bean>
+
+    <bean id = "hardwareCompanyBean" class = "com.training.inheritance.HardwareCompany" parent = "softwareCompanyBean">
+        <property name = "companyName" value = "Royal Enfield!"/>
+        <property name = "totalStaff" value = "1500"/>
+    </bean>
+
+    <!--Inheritance With Extends Keyword-->
+    <bean id="laptop" class="com.training.inheritance.withExtends.Laptops" >
+        <property name="hardDiskCapacity" value="One TeraByte"/>
+        <property name="ram" value="Sixteen GigaBytes"/>
+    </bean>
+    <bean id="macbook" class="com.training.inheritance.withExtends.MacBook" parent="laptop">
+        <property name="osType" value="IOS"/>
+    </bean>
+
+    <!--Dependency Injection with Ref-->
+    <bean id="injectedBean" class="com.training.dependencyInjection.Iphone"/>
+
+    <bean id="exampleBean"
+          class="com.training.dependencyInjection.Mobile">
+        <constructor-arg ref="injectedBean"/>
+    </bean>
 
 </beans>

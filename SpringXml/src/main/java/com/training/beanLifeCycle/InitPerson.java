@@ -1,4 +1,4 @@
-package com.training;
+package com.training.beanLifeCycle;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
