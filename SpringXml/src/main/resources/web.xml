@@ -81,11 +81,11 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     </bean>
 
     <!--Dependency Injection with Ref-->
-    <bean id="injectedBean" class="com.training.dependencyInjection.Iphone"/>
+    <bean id="iphoneBean" class="com.training.dependencyInjection.Iphone"/>
 
-    <bean id="exampleBean"
+    <bean id="mobileBean"
           class="com.training.dependencyInjection.Mobile">
-        <constructor-arg ref="injectedBean"/>
+        <constructor-arg ref="iphoneBean"/>
     </bean>
 
 </beans>
