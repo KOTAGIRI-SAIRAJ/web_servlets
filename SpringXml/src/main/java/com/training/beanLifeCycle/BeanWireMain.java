@@ -27,7 +27,7 @@ public class BeanWireMain {
         usingClassPathXmlApplicationContext.show();
         classPathXmlApplicationContext.close();
 
-        /*Not Working*/
+        /*Request and Sessions are not Working for Application context*/
         /*Person usingApplicationContextRequest = (Person)applicationContext.getBean("applicationContextRequest");
         usingApplicationContextRequest.show();
 
@@ -50,7 +50,7 @@ public class BeanWireMain {
         Person usingBeanFactoryBeanLifeCycle = (Person)factory.getBean("beanLifeCycleMethods");
         usingBeanFactoryBeanLifeCycle.show();
 
-        /*Not Working*/
+        /*Request and Sessions are not Working for Bean Factory*/
         /*Person usingBeanFactorySession = (Person)factory.getBean("beanFactorySession");
         usingBeanFactorySession.show();
 
