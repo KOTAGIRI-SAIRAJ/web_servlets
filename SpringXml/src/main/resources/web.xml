@@ -88,4 +88,10 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <constructor-arg ref="iphoneBean"/>
     </bean>
 
+    <!--Single Ton And Prototype Differences-->
+    <bean id="engineBeanSingleTon" class="com.training.beanScope.Engine" scope="singleton"/>
+
+    <bean id="engineBeanPrototype" class="com.training.beanScope.Engine" scope="prototype"/>
+
+
 </beans>
