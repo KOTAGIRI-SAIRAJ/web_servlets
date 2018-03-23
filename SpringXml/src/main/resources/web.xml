@@ -58,7 +58,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     </bean>
 
     <!--Load the pre and post initialization-->
-    <bean class="com.training.beanLifeCycle.InitPerson"/>
+    <!--<bean class="com.training.beanLifeCycle.InitPerson"/>-->
 
     <!--Inheritance Without Extends Keyword-->
     <bean id = "softwareCompanyBean" class = "com.training.inheritance.SoftwareCompany">
@@ -93,5 +93,33 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
     <bean id="engineBeanPrototype" class="com.training.beanScope.Engine" scope="prototype"/>
 
+    <!--AutoWiring-->
+        <!--AutoWiring By Name-->
+        <!--<bean name="room1" class="com.training.autoWire.Room">
+            <property name="roomColor" value="Blue"/>
+            <property name="roomType" value="Master BedRoom"/>
+        </bean>-->
+        <bean name="room" class="com.training.autoWire.Room">
+            <property name="roomType" value="Children's BedRoom"/>
+            <property name="roomColor" value="Green"/>
+        </bean>
+        <bean name="building" class="com.training.autoWire.Building" autowire="byName">
+            <property name="builderName" value="Sai Raj"/>
+        </bean>
+
+        <!--<bean name="building" class="com.training.autoWire.Building" autowire="byType">
+            <property name="builderName" value="Sai Raj"/>
+        </bean>-->
+
+    <!--AutoWiring By Type-->
+        <!--<bean id="buildingBeanByType" class="com.training.autoWire.Building" autowire="byType"></bean>-->
+
+        <!--AutoWiring By Constructor-->
+        <!--<bean id="buildingBeanConstructor" class="com.training.autoWire.Building" autowire="constructor"></bean>-->
+
+        <!--AutoWiring By No-->
+        <!--<bean id="buildingBeanNo" class="com.training.autoWire.Building" autowire="no"></bean>-->
+
+        <!--<bean id="room" class="com.training.autoWire.Room"></bean>-->
 
 </beans>
